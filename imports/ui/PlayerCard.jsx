@@ -46,33 +46,38 @@ export const PlayerCard = ({ player, teams, fixtures }) => {
                 <h3 className='fppg'>{fppg}</h3>
             </div>
             <table>
-                <tr>
-                    <th colspan='3'>{player.first_name + ' ' + player.last_name}</th>
-                </tr>
-                <tr>
-                    <td>Team</td>
-                    <td>{teamName}</td>
-                </tr>
-                <tr>
-                    <td>Position</td>
-                    <td>{player.position}</td>
-                </tr>
-                <tr>
-                    <td>Matches Played</td>
-                    <td>{player.played}</td>
-                </tr>
-                <tr>
-                    <td>Injured</td>
-                    <td>{player.injured ? 'Yes': 'No'}</td>
-                </tr>
-                <tr>
-                    <td>Next Match</td>
-                    <td>{nextMatchOpName}</td>
-                </tr>
-                <tr>
-                    <td>Next Match Date</td>
-                    <td>{nextMatchDate}</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th colSpan='3'>{player.first_name + ' ' + player.last_name}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Team</td>
+                        <td>{teamName}</td>
+                    </tr>
+                    <tr>
+                        <td>Position</td>
+                        <td>{player.position}</td>
+                    </tr>
+                    <tr>
+                        <td>Matches Played</td>
+                        <td>{player.played}</td>
+                    </tr>
+                    <tr>
+                        <td>Injured</td>
+                        <td>{player.injured ? 'Yes': 'No'}</td>
+                    </tr>
+                    <tr>
+                        <td>Next Match</td>
+                        <td>{nextMatchOpName}</td>
+                    </tr>
+                    <tr>
+                        <td>Next Match Date</td>
+                        <td>{nextMatchDate}</td>
+                    </tr>
+                </tbody>
+
             </table>
         </div>
     );
