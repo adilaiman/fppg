@@ -8,7 +8,7 @@ export const PlayerCard = ({ player, teams, fixtures, higherFPPG, onCardClick}) 
     let nextMatchOpName = 'TBD';
     let fppg;
 
-    const [cardSelectColor, setCardSelectColor] = useState('#fff');
+    const [cardSelectColor, setCardSelectColor] = useState('#222');
     const [fppgHidden, setFppgHidden] = useState(true);
 
     if (fppgHidden) {
@@ -41,7 +41,7 @@ export const PlayerCard = ({ player, teams, fixtures, higherFPPG, onCardClick}) 
     return (
         <div 
             className='player-card'
-            style={{border:`3px solid ${cardSelectColor}`}}
+            style={{border:`5px solid ${cardSelectColor}`}}
             onClick={() => {
                     onCardClick(player._id === higherFPPG);
                     if (player._id === higherFPPG) {

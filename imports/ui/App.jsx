@@ -54,17 +54,22 @@ export const App = () => {
 
   return (
     <div>
-      <h1>FPPG Game</h1>
-      <h2>{winMessage}</h2>
-      <h2>Score: {score}</h2>
-      <h2>Guesses: {counter}</h2>
-      <h2>Wins: {winCount}</h2>
-      {pairs.slice(randomIndex-1, randomIndex).map(pair =>
-        <PlayerCard key={pair.playerOne._id} player={pair.playerOne} higherFPPG={pair.higherFPPG} teams={teams} fixtures={fixtures} onCardClick={handleCardClick} />
-      )}
-      {pairs.slice(randomIndex-1, randomIndex).map(pair =>
-        <PlayerCard key={pair.playerTwo._id} player={pair.playerTwo} higherFPPG={pair.higherFPPG} teams={teams} fixtures={fixtures} onCardClick={handleCardClick} />
-      )}
+      <header>
+        <h1>FPPG (Adi Laiman)</h1>
+      </header>
+      <div className='scores'>
+        <h2>Score: {score}</h2>
+        <h2>Guesses: {counter}</h2>
+        <h2>Wins: {winCount}</h2>
+      </div>
+        <div className='cards'>
+        {pairs.slice(randomIndex-1, randomIndex).map(pair =>
+          <PlayerCard key={pair.playerOne._id} player={pair.playerOne} higherFPPG={pair.higherFPPG} teams={teams} fixtures={fixtures} onCardClick={handleCardClick} />
+        )}
+        {pairs.slice(randomIndex-1, randomIndex).map(pair =>
+          <PlayerCard key={pair.playerTwo._id} player={pair.playerTwo} higherFPPG={pair.higherFPPG} teams={teams} fixtures={fixtures} onCardClick={handleCardClick} />
+        )}
+      </div>
     </div>
   );
 };
