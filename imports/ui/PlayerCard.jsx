@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 
-export const PlayerCard = ({ player, teams, fixtures }) => {
-
+export const PlayerCard = ({ player, teams, fixtures, higherFPPG, onCardClick}) => {
     const [cardSelectColor, setCardSelectColor] = useState('#fff');
+    const [fppgHidden, setFppgHidden] = useState(true);
 
-    const handleClick = () => {
-        setCardSelectColor('green');
+    let fppg;
+    if (fppgHidden) {
+        fppg = '??';
+    } else {
+        fppg = player.fppg ? player.fppg.toFixed(2) : '';
     }
 
-    const fppg = player.fppg ? player.fppg.toFixed(2) : '';
     let teamName;
     let nextMatchDate = 'TBD';
     let nextMatchOpId;
@@ -39,7 +41,16 @@ export const PlayerCard = ({ player, teams, fixtures }) => {
         <div 
             className='player-card'
             style={{border:`3px solid ${cardSelectColor}`}}
-            onClick={handleClick}
+            onClick={() => {
+                    onCardClick(player._id === higherFPPG);
+                    if (player._id === higherFPPG) {
+                        setCardSelectColor('green');
+                    } else {
+                        setCardSelectColor('red');
+                    }
+                    setFppgHidden(false);
+                }
+            }
         >
             <div className='top-card'>
                 <img src={player.images.default.url}/>
@@ -61,7 +72,7 @@ export const PlayerCard = ({ player, teams, fixtures }) => {
                         <td>{player.position}</td>
                     </tr>
                     <tr>
-                        <td>Matches Played</td>
+                        <td>Played</td>
                         <td>{player.played}</td>
                     </tr>
                     <tr>
@@ -73,8 +84,8 @@ export const PlayerCard = ({ player, teams, fixtures }) => {
                         <td>{nextMatchOpName}</td>
                     </tr>
                     <tr>
-                        <td>Next Match Date</td>
-                        <td>{nextMatchDate}</td>
+                        <td></td>
+                        <td>{nextMatchDate.slice(0,10)}</td>
                     </tr>
                 </tbody>
 
