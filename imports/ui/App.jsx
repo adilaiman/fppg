@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
-
-import Players from '/imports/api/players';
-import Teams from '/imports/api/teams';
-import Fixtures from '/imports/api/fixtures';
-import Pairs from '/imports/api/pairs';
-
 import { PlayerCard } from './PlayerCard';
+import { getAllFixtures } from '/imports/api/fixtures-service.js';
+import { getAllPairs } from '/imports/api/pairs-service.js';
+import { getAllPlayers } from '/imports/api/players-service.js';
+import { getAllTeams } from '/imports/api/teams-service.js';
 
 
 export const App = () => {
 
   const [score, setScore] = useState(0);
   const [counter, setCounter] = useState(0);
-  const [winCount, setWinCount] = useState(0);
   const [win, setWin] = useState(false);
+  const [winCount, setWinCount] = useState(0);
   const [winMessage, setWinMessage] = useState('');
 
   const { players, teams, fixtures, pairs} = useTracker(() => {
     return ({
-      players: Players.find({}, { sort: {'team._members': 1} }).fetch(),
-      teams: Teams.find({}).fetch(),
-      fixtures: Fixtures.find({}).fetch(),
-      pairs: Pairs.find({}).fetch(),
+      players: getAllPlayers.call(),
+      teams: getAllTeams.call(),
+      fixtures: getAllFixtures.call(),
+      pairs: getAllPairs.call(),
     });
   });
 

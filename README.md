@@ -2,14 +2,14 @@
 ## 1 Roadmap
 
 ### 1.1 Main Tasks
-- [x] Crash course react over weekend
+- [x] Crash course React over weekend
 - [x] Load remote JSON, and store in collections
 - [x] Display data on card object
 - [x] Make pairs collection, for card pairings
 - [x] Display two random cards using a pair
-- [ ] Add SimplSchema, Validated Methods and PropTypes
+- [x] Add SimplSchema, Validated Methods and PropTypes
 - [ ] Unit Tests + Code Coverage
-- [ ] Implement basic styling
+- [ ] Implement basic styling (I suck at design!)
 
 ### 1.2 Bugs
 - [ ] Able to click, other card on select
