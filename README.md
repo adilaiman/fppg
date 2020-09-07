@@ -1,14 +1,29 @@
 # FPPG Card Game
 ## 1 Roadmap
-- [x] Learn React
+
+### 1.1 Main Tasks
+- [x] Crash course react over weekend
 - [x] Load remote JSON, and store in collections
 - [x] Display data on card object
-- [ ] Make membership collection, for card pairings
-- [ ] Display two random cards, that have not been paired before
-- [ ] Unit tests + coverage
-- [ ] Implement schema and method validation in MeteorJS
+- [x] Make pairs collection, for card pairings
+- [x] Display two random cards using a pair
+- [ ] Add SimplSchema, Validated Methods and PropTypes
+- [ ] Unit Tests + Code Coverage
+- [ ] Implement basic styling
+
+### 1.2 Bugs
+- [ ] Able to click, other card on select
+- [ ] Pairs can repeat
 ---
 ## 2 How to deploy on a local machine
+
+### 2.1 Installing Meteor
+Install meteor
+```
+https://www.meteor.com/
+```
+
+### 2.1 Running Meteor
 ```BASH
 cd <cloned repo folder>
 meteor npm install
