@@ -31,6 +31,10 @@ header {
   padding: 50px;
 }
 
+.no-click {
+  pointer-events: none;
+}
+
 .scores h2 {
   display: inline-block;
   margin-right: 30px;

@@ -12,7 +12,7 @@
 - [ ] Implement basic styling (I suck at design!)
 
 ### 1.2 Bugs
-- [ ] Able to click, other card on select
+- [x] ~~Able to click two cards before next round~~
 - [ ] Pairs can repeat
 ---
 ## 2 How to deploy on a local machine

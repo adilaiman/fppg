@@ -27,8 +27,10 @@ export const App = () => {
   const randomIndex = Math.floor(Math.random() * (pairs.length -1));
 
   const handleCardClick = (correct) => {
+    document.getElementById('cards').classList.add('no-click');
     setTimeout(function() {
       if (correct) {
+        document.getElementById('cards').classList.remove('no-click');
         setScore(prevScore => prevScore + 1);
         setCounter(prevCounter => prevCounter + 1);
         if (score === 9) {
@@ -38,9 +40,10 @@ export const App = () => {
           return;
         }
       } else {
+        document.getElementById('cards').classList.remove('no-click');
         setCounter(prevCounter => prevCounter + 1);
       }
-    }.bind(this), 1000)
+    }.bind(this), 1000);
   }
 
   if (win) {
@@ -62,7 +65,7 @@ export const App = () => {
         <h2>Guesses: {counter}</h2>
         <h2>Wins: {winCount}</h2>
       </div>
-        <div className='cards'>
+        <div className='cards' id='cards'>
         {pairs.slice(randomIndex-1, randomIndex).map(pair =>
           <PlayerCard key={pair.playerOne._id} player={pair.playerOne} higherFPPG={pair.higherFPPG} teams={teams} fixtures={fixtures} onCardClick={handleCardClick} />
         )}
