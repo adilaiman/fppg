@@ -16,6 +16,10 @@ export const App = () => {
   const [winMessage, setWinMessage] = useState('');
 
   const { players, teams, fixtures, pairs} = useTracker(() => {
+    Meteor.subscribe('players');
+    Meteor.subscribe('teams');
+    Meteor.subscribe('fixtures');
+    Meteor.subscribe('pairs');
     return ({
       players: getAllPlayers.call(),
       teams: getAllTeams.call(),

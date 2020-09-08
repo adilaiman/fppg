@@ -1,3 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 
-export default new Mongo.Collection('teams');
+export default Teams = new Mongo.Collection('teams');
+
+if (Meteor.isServer) {
+    Meteor.publish('teams', function() { return Teams.find() })
+}
