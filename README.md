@@ -10,7 +10,7 @@
 - [x] Add SimplSchema, Validated Methods and PropTypes
 - [x] Unit Tests
 - [x] Refactor, add comments and JSDOC comments
-- [ ] Implement basic styling (I suck at design!)
+- [x] Implement basic styling (I suck at design!)
 
 ### 1.2 Bugs
 - [x] ~~Able to select two cards before next round~~
@@ -52,3 +52,10 @@ meteor npm rebuild
 ```BASH
 meteor test --driver-package meteortesting:mocha --full-app
 ```
+
+### 2.3 How to play
+Simply click on the card you think has the higher FPPG score. You need to guess 10 FPPG scores correctly before obtaining 1 win.
+
+## 3 Epilogue
+### 3.1 Footnotes
+Fun project! However due to lack of experience and time with React and using it with Meteor, there is a sync issue between rendering the components and getting data back from MongoDB collections. I suspect that this is the root cause of the left over bugs before I ran out of time. If you have any suggestions or if you know how to sync, please feel free to leave a pull request! Thanks for taking your time to check out my submission! :)

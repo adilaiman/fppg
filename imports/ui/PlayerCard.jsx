@@ -71,27 +71,27 @@ export const PlayerCard = ({ player, teams, fixtures, higherFPPG, onCardClick}) 
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Team</td>
+                        <td className='field'>Team</td>
                         <td>{teamName}</td>
                     </tr>
                     <tr>
-                        <td>Position</td>
+                        <td className='field'>Position</td>
                         <td>{player.position}</td>
                     </tr>
                     <tr>
-                        <td>Played</td>
+                        <td className='field'>Played</td>
                         <td>{player.played}</td>
                     </tr>
                     <tr>
-                        <td>Injured</td>
+                        <td className='field'>Injured</td>
                         <td>{player.injured ? 'Yes': 'No'}</td>
                     </tr>
                     <tr>
-                        <td>Next Match</td>
+                        <td className='field'>Next Match</td>
                         <td>{nextMatchOpName}</td>
                     </tr>
                     <tr>
-                        <td>Next Match Date</td>
+                        <td className='field'>Next Match Date</td>
                         <td>{nextMatchDate.slice(0,10)}</td>
                     </tr>
                 </tbody>

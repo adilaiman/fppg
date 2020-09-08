@@ -14,7 +14,7 @@ header {
   background-color: #1493ff;
   height: 60px;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 12px;
 }
 
 .scores {
@@ -22,7 +22,7 @@ header {
   height: 40px;
   width: 100%;
   text-align: center;
-  padding-top: 9px;
+  padding-top: 10px;
 }
 
 .cards {
@@ -48,6 +48,7 @@ header {
   width: 320px;
   height: 340px;
   margin-right: 30px;
+  cursor: pointer;
 }
 
 .top-card {
@@ -78,7 +79,12 @@ table {
 }
 
 table, th, td {
-  border: 1px solid #333;
+  border-top: 1px solid #333;
+}
+
+.field {
+  border-right: 1px solid #333;
+  font-weight: bold;
 }
 
 td {

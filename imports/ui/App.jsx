@@ -38,6 +38,7 @@ export const App = () => {
         setScore(prevScore => prevScore + 1);
         setGuesses(prevGuess => prevGuess + 1);
         if (score === 9) {
+          document.getElementById('cards').classList.add('no-click');
           setWin(true);
           setWinCount(prevWinCount => prevWinCount + 1);
           return;
@@ -52,6 +53,7 @@ export const App = () => {
   // resets stats if player wins
   if (win) {
     setTimeout(function() {
+    document.getElementById('cards').classList.remove('no-click');
     setScore(0);
     setGuesses(0);
     setWin(false);
