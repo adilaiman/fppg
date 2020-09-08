@@ -5,10 +5,10 @@ import { ValidatedMethod } from 'meteor/mdg:validated-method';
 export const getPlayer = new ValidatedMethod({
     name: 'players.getPlayer',
     validate: new SimpleSchema({
-        id: { type: String },
+        _id: { type: String },
     }).validator(),
-    run({ id }) {
-        return Players.findOne({id});
+    run({ _id }) {
+        return Players.findOne({ _id });
     }
 });
 

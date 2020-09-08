@@ -1,5 +1,10 @@
 import assert from "assert";
 
+import '../imports/api/fixtures.tests.js';
+import '../imports/api/pairs.tests.js';
+import '../imports/api/players.tests.js';
+import '../imports/api/teams.tests.js';
+
 describe("fppg", function () {
   it("package.json has correct name", async function () {
     const { name } = await import("../package.json");
