@@ -9,12 +9,13 @@ import { getAllTeams } from '/imports/api/teams-service.js';
 
 export const App = () => {
 
+  // set state vars
   const [score, setScore] = useState(0);
-  const [counter, setCounter] = useState(0);
+  const [guesses, setGuesses] = useState(0);
   const [win, setWin] = useState(false);
   const [winCount, setWinCount] = useState(0);
-  const [winMessage, setWinMessage] = useState('');
 
+  // tracker to update collection data on change
   const { players, teams, fixtures, pairs} = useTracker(() => {
     Meteor.subscribe('players');
     Meteor.subscribe('teams');
@@ -28,36 +29,37 @@ export const App = () => {
     });
   });
 
-  const randomIndex = Math.floor(Math.random() * (pairs.length -1));
-
+  // handles card click event
   const handleCardClick = (correct) => {
     document.getElementById('cards').classList.add('no-click');
     setTimeout(function() {
       if (correct) {
         document.getElementById('cards').classList.remove('no-click');
         setScore(prevScore => prevScore + 1);
-        setCounter(prevCounter => prevCounter + 1);
+        setGuesses(prevGuess => prevGuess + 1);
         if (score === 9) {
-          setWinMessage('You Win!');
           setWin(true);
           setWinCount(prevWinCount => prevWinCount + 1);
           return;
         }
       } else {
         document.getElementById('cards').classList.remove('no-click');
-        setCounter(prevCounter => prevCounter + 1);
+        setGuesses(prevGuess => prevGuess + 1);
       }
     }.bind(this), 1000);
   }
 
+  // resets stats if player wins
   if (win) {
     setTimeout(function() {
-    setWinMessage('');
     setScore(0);
-    setCounter(0);
+    setGuesses(0);
     setWin(false);
     }.bind(this), 1000)
   }
+
+  // gets a random integer to be used in randoming a pair of players
+  const randomIndex = Math.floor(Math.random() * (pairs.length -1));
 
   return (
     <div>
@@ -65,11 +67,11 @@ export const App = () => {
         <h1>FPPG (Adi Laiman)</h1>
       </header>
       <div className='scores'>
-        <h2>Score: {score}</h2>
-        <h2>Guesses: {counter}</h2>
-        <h2>Wins: {winCount}</h2>
+        <h3>Score: {score}</h3>
+        <h3>Guesses: {guesses}</h3>
+        <h3>Wins: {winCount}</h3>
       </div>
-        <div className='cards' id='cards'>
+        <div id='cards' className='cards'>
         {pairs.slice(randomIndex-1, randomIndex).map(pair =>
           <PlayerCard key={pair.playerOne._id} player={pair.playerOne} higherFPPG={pair.higherFPPG} teams={teams} fixtures={fixtures} onCardClick={handleCardClick} />
         )}

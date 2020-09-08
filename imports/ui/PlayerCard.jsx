@@ -2,21 +2,26 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 export const PlayerCard = ({ player, teams, fixtures, higherFPPG, onCardClick}) => {
+
+    // init vars
     let teamName;
     let nextMatchDate = 'TBD';
     let nextMatchOpId;
     let nextMatchOpName = 'TBD';
     let fppg;
 
+    // set state vars
     const [cardSelectColor, setCardSelectColor] = useState('#222');
     const [fppgHidden, setFppgHidden] = useState(true);
 
+    // hides fppg score and reveals fppg during play
     if (fppgHidden) {
         fppg = '?';
     } else {
         fppg = player.fppg ? player.fppg.toFixed(2) : '';
     }
 
+    // loops through fixtures data and returns next match information
     fixtures.forEach(fixture => {
         if (player.team._members[0] === fixture.away_team.team._members[0]) {
             nextMatchDate = fixture.start_date;
@@ -28,6 +33,7 @@ export const PlayerCard = ({ player, teams, fixtures, higherFPPG, onCardClick}) 
         }
     });
 
+    // loops through teams data and returns team names for players own team and next match team
     teams.forEach(team => {
         if (team.id === player.team._members[0]) {
             teamName = team.full_name;
@@ -45,9 +51,9 @@ export const PlayerCard = ({ player, teams, fixtures, higherFPPG, onCardClick}) 
             onClick={() => {
                     onCardClick(player._id === higherFPPG);
                     if (player._id === higherFPPG) {
-                        setCardSelectColor('green');
+                        setCardSelectColor('#00ff00');
                     } else {
-                        setCardSelectColor('red');
+                        setCardSelectColor('#ff1a1a');
                     }
                     setFppgHidden(false);
                 }
@@ -94,6 +100,7 @@ export const PlayerCard = ({ player, teams, fixtures, higherFPPG, onCardClick}) 
     );
 }
 
+// PropTypes to make sure that all data required is passed
 PlayerCard.propTypes = {
     player: PropTypes.object.isRequired,
     teams: PropTypes.array.isRequired,

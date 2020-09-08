@@ -6,6 +6,11 @@ import Players from '/imports/api/players';
 import Teams from '/imports/api/teams';
 import Pairs from '/imports/api/pairs';
 
+/**
+ * @summary inserts JSON string into the collections
+ * @function insertIntoCollections
+ * @param {String} data - JSON string
+ */
 function insertIntoCollections(data) {
     const keys = Object.keys(data);
     keys.splice(0,1);
@@ -33,6 +38,7 @@ const url = 'https://gist.githubusercontent.com/liamjdouglas/bb40ee8721f1a9313c2
 
 Meteor.startup(() => {
 
+    // clear collections on startup, this is only here to allow different urls to be loaded
     Players.remove({});
     Teams.remove({});
     Fixtures.remove({});
@@ -57,7 +63,7 @@ Meteor.startup(() => {
         }
     }
 
-    // take each pair and add a field to display id of player with higher fppg score
+    // take each pair and add a field to display the id of player with higher fppg score
     const pairs = Pairs.find({}).fetch();
     for (let pair of pairs) {
         const { playerOne, playerTwo } = pair;

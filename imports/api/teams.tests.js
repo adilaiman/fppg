@@ -3,6 +3,7 @@ import { assert } from 'chai';
 
 import Teams from './teams.js';
 import { getTeam, getAllTeams } from './teams-service.js';
+import { teamsData } from './testData.js';
 
 if (Meteor.isServer) {
     describe('Teams', function() {
@@ -11,14 +12,7 @@ if (Meteor.isServer) {
             let teamId;
             before(() => {
                 Teams.remove({});
-                teamId = Teams.insert({
-                    "_id" : "eXmSb2EuifpfQHHGh",
-                    "city" : "Golden State",
-                    "code" : "GS",
-                    "full_name" : "Golden State Warriors",
-                    "id" : "687",
-                    "name" : "Warriors",
-                });
+                teamId = Teams.insert(teamsData);
                 team = Teams.findOne({});
             });
 
