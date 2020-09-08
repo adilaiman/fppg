@@ -1,4 +1,4 @@
-# FPPG Card Game
+# FPPG (Adi Laiman)
 ## 1 Roadmap
 
 ### 1.1 Main Tasks
@@ -43,6 +43,8 @@ cd <cloned repo folder>
 meteor npm install
 meteor
 ```
+![](gif/run_meteor.gif)
+
 If you still get package errors after running these commands you will need to run
 ```BASH
 meteor npm rebuild
@@ -52,9 +54,11 @@ meteor npm rebuild
 ```BASH
 meteor test --driver-package meteortesting:mocha --full-app
 ```
+![](gif/run_meteor_test.gif)
 
 ### 2.3 How to play
 Simply click on the card you think has the higher FPPG score. You need to guess 10 FPPG scores correctly before obtaining 1 win.
+![](gif/play_fppg_al.gif)
 
 ## 3 Epilogue
 ### 3.1 Footnotes
