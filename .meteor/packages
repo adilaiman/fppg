@@ -22,3 +22,4 @@ http
 mdg:validated-method
 meteortesting:mocha
 lmieulet:meteor-coverage
+johanbrook:publication-collector

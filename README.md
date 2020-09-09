@@ -64,6 +64,8 @@ meteor npm install --save-dev babel-plugin-istanbul
 BABEL_ENV=COVERAGE COVERAGE=1 COVERAGE_VERBOSE=1 COVERAGE_APP_FOLDER=$PWD/ TEST_WATCH=1 meteor test --driver-package meteortesting:mocha
 ```
 
+If you do not see any green on the code coverage page, please refresh the page, as code coverage takes a small amount of time to load before generating an up to date html document.
+
 ![](gif/code_coverage.png)
 
 ### 2.3 How to play
