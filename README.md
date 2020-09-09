@@ -9,6 +9,7 @@
 - [x] Display two random cards using a pair
 - [x] Add SimplSchema, Validated Methods and PropTypes
 - [x] Unit Tests
+- [x] Add code coverage tool
 - [x] Refactor, add comments and JSDOC comments
 - [x] Implement basic styling (I suck at design!)
 
@@ -55,6 +56,15 @@ meteor npm rebuild
 meteor test --driver-package meteortesting:mocha --full-app
 ```
 ![](gif/run_meteor_test.gif)
+
+### 2.3 Run Meteor Mocha Code Coverage
+```BASH
+meteor npm install --save-dev babel-plugin-istanbul
+
+BABEL_ENV=COVERAGE COVERAGE=1 COVERAGE_VERBOSE=1 COVERAGE_APP_FOLDER=$PWD/ TEST_WATCH=1 meteor test --driver-package meteortesting:mocha
+```
+
+![](gif/code_coverage.png)
 
 ### 2.3 How to play
 Simply click on the card you think has the higher FPPG score. You need to guess 10 FPPG scores correctly before obtaining 1 win.
