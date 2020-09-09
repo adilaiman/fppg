@@ -38,7 +38,7 @@ https://chocolatey.org/install
 choco install meteor
 ```
 
-### 2.1 Running Meteor
+### 2.2 Running Meteor
 ```BASH
 cd <cloned repo folder>
 meteor npm install
@@ -51,13 +51,13 @@ If you still get package errors after running these commands you will need to ru
 meteor npm rebuild
 ```
 
-### 2.2 Run MochaJS unit tests
+### 2.3 Run MochaJS unit tests
 ```BASH
 meteor test --driver-package meteortesting:mocha --full-app
 ```
 ![](gif/run_meteor_test.gif)
 
-### 2.3 Run Meteor Mocha Code Coverage
+### 2.4 Run Meteor Mocha Code Coverage
 ```BASH
 meteor npm install --save-dev babel-plugin-istanbul
 
@@ -68,8 +68,9 @@ If you do not see any green on the code coverage page, please refresh the page, 
 
 ![](gif/code_coverage.png)
 
-### 2.3 How to play
+### 2.5 How to play
 Simply click on the card you think has the higher FPPG score. You need to guess 10 FPPG scores correctly before obtaining 1 win.
+
 ![](gif/play_fppg_al.gif)
 
 ## 3 Epilogue
